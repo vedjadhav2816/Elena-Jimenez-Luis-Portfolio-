@@ -12,7 +12,7 @@ export default function VSLCaseStudy() {
     {
       id: 1,
       title: "H5 VSL - Nooro Red Light Therapy",
-      videoSrc: "/videos/H5 VSL, Nooro_NEW_L1_RLTherapy.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781942243/H5_VSL_Nooro_NEW_L1_RLTherapy_thqh1n.mp4",
       screenshot: "/screenshots/H5 VSL, Nooro_NEW_L1_RLTherapy performance metrics.png",
       result: "22% Conversion Rate",
       duration: "8:15",
@@ -21,7 +21,7 @@ export default function VSLCaseStudy() {
     {
       id: 2,
       title: "Fitness Program VSL",
-      videoSrc: "/videos/Long VSL H6_4x5_VID_5Myth_NEW.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781943945/Long_VSL_H6_4x5_VID_5Myth_NEW_lwrjuw.mp4",
       screenshot: "/screenshots/Long VSL H6_4x5_VID_5Myth_NEW performance metrics.png",
       result: "17.8% Conversion Rate",
       duration: "7:45",
@@ -51,7 +51,7 @@ export default function VSLCaseStudy() {
     {
       id: 1,
       title: "Short Form VSL 1",
-      videoSrc: "/videos/3 min _Norelie_ .mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781944286/3_min__Norelie__auckgi.mp4",
       screenshot: "/screenshots/3 min _Norelie_ performance metrics .png",
       result: "3.8 ROAS",
       duration: "2:54",
@@ -60,7 +60,7 @@ export default function VSLCaseStudy() {
     {
       id: 2,
       title: "Short Form VSL 2",
-      videoSrc: "/videos/H1_CPareyou60_9x16.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781944590/H1_CPareyou60_9x16_spkww0.mp4",
       // ❌ No screenshot, no result
       duration: "1:33",
       isVertical: true,
@@ -68,7 +68,7 @@ export default function VSLCaseStudy() {
     {
       id: 3,
       title: "Short Form VSL 3",
-      videoSrc: "/videos/9x16 fluxa pdrn video.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781944774/9x16_fluxa_pdrn_video_ur35fr.mp4",
       // ❌ No screenshot, no result
       duration: "0:52",
       isVertical: true,
@@ -76,7 +76,7 @@ export default function VSLCaseStudy() {
     {
       id: 4,
       title: "Short Form VSL 4",
-      videoSrc: "/videos/H1_CPingredientsbreakdown_9x16.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781945020/H1_CPingredientsbreakdown_9x16_iuiqzm.mp4",
       // ❌ No screenshot, no result
       duration: "1:54",
       isVertical: true,
@@ -84,7 +84,7 @@ export default function VSLCaseStudy() {
     {
       id: 5,
       title: "Short Form VSL 5",
-      videoSrc: "/videos/H5hyaluronic_CPtophatoavoid_9x16.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781941206/H5hyaluronic_CPtophatoavoid_9x16_t6szpu.mp4",
       // ❌ No screenshot, no result
       duration: "1:54",
       isVertical: true,
