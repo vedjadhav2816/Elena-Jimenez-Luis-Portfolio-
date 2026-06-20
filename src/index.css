@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #050816;
+  color: white;
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  cursor: none; /* Hide default cursor */
+}
+
+/* Premium Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(90deg, #06b6d4, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Neon Glow */
+.neon-cyan {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.6),
+              0 0 30px rgba(6, 182, 212, 0.3);
+}
+
+/* ===================== COOL CUSTOM CURSOR ===================== */
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #06b6d4;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease;
+  transform: translate(-50%, -50%);
+}
+
+.cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #06b6d4;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px #06b6d4;
+}
+
+.cursor.active {
+  transform: translate(-50%, -50%) scale(1.8);
+  border-color: #a855f7;
+}
+
+.cursor.active::after {
+  background: #a855f7;
+  box-shadow: 0 0 20px #a855f7;
+}
+
+/* Hide cursor on mobile */
+@media (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
+  body {
+    cursor: auto;
+  }
+}
