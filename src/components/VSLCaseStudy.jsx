@@ -11,7 +11,7 @@ export default function VSLCaseStudy() {
   const longFormVSLs = [
     {
       id: 1,
-      title: "H5 VSL - Nooro Red Light Therapy",
+      title: "Long Form VSL 1",
       videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781942243/H5_VSL_Nooro_NEW_L1_RLTherapy_thqh1n.mp4",
       screenshot: "/screenshots/H5 VSL, Nooro_NEW_L1_RLTherapy performance metrics.png",
       result: "22% Conversion Rate",
@@ -20,7 +20,7 @@ export default function VSLCaseStudy() {
     },
     {
       id: 2,
-      title: "Fitness Program VSL",
+      title: "Long Form VSL 2",
       videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781943945/Long_VSL_H6_4x5_VID_5Myth_NEW_lwrjuw.mp4",
       screenshot: "/screenshots/Long VSL H6_4x5_VID_5Myth_NEW performance metrics.png",
       result: "17.8% Conversion Rate",
@@ -29,7 +29,7 @@ export default function VSLCaseStudy() {
     },
     {
       id: 3,
-      title: "Health Supplement VSL",
+      title: "Long Form VSL 3",
       videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781939387/TK_H3_4x5_VID_Nooro_IT.R3_L1_Dr_Avatar_rz455s.mp4",
       screenshot: "/screenshots/TK_H3_4x5_VID_Nooro_IT.R3_L1_Dr_Avatar performance metrics.png",
       result: "19.4% Conversion Rate",
@@ -38,7 +38,7 @@ export default function VSLCaseStudy() {
     },
     {
       id: 4,
-      title: "Coaching Offer VSL",
+      title: "Long Form VSL 4",
       videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781938112/UGC_VSL_PT_Laura_L1_H11_h7dchc.mp4",
       screenshot: "/screenshots/UGC_VSL PT_Laura L1 H11 performance metrics.png",
       result: "24% Conversion Rate",
