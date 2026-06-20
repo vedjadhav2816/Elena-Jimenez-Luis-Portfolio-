@@ -10,7 +10,7 @@ export default function PodcastCaseStudy() {
   const podcast = {
     title: "Health & Fitness Brand Podcast",
     episode: "Episode 12 - Scaling DTC Brands in 2026",
-    videoSrc: "/videos/Podcast Reel edit.mov",
+    videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781969171/Podcast_Reel_edit_ar02ij.mov",
     duration: "34 sec",
   };
 
