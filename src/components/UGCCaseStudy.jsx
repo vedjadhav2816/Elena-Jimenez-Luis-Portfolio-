@@ -11,37 +11,37 @@ export default function UGCCaseStudy() {
     {
       id: 1,
       title: "AI UGC_VSL",
-      videoSrc: "/videos/AI UGC_VSL.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781948065/AI_UGC_VSL_ebhmhh.mp4",
       duration: "4.46 min"
     },
     {
       id: 2,
       title: "pretty person problem caryapper",
-      videoSrc: "/videos/UGC2.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781948565/H2_head1_CPprettypersonproblemcaryapper_9x16_kwngmx.mp4",
       duration: "2.14 min"
     },
     {
       id: 3,
       title: "Medium UGC",
-      videoSrc: "/videos/Medium UGC (1).mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781950149/Medium_UGC_wiekph.mp4 ",
       duration: "2.24 min"
     },
     {
       id: 4,
       title: "Medium VSL",
-      videoSrc: "/videos/UGC4.mov",
-      duration: "4.52 min"
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781949481/Medium_VSL_1_qxdkgd.mp4",
+      duration: "4.51 min"
     },
     {
       id: 5,
       title: "Short UGC",
-      videoSrc: "/videos/UGC5.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781964054/Short_UGC_iebaui.mp4",
       duration: "1.18 min"
     },
     {
       id: 6,
       title: "UGC Edit",
-      videoSrc: "/videos/UGC 6.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781950554/UGC_edit_y6izma.mp4",
       duration: "1.00 min"
     },
   ];
