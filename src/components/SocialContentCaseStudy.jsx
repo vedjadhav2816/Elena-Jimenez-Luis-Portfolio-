@@ -10,7 +10,7 @@ export default function SocialContentCaseStudy() {
     {
       id: 1,
       title: "Hook in 3 Seconds",
-      videoSrc: "/videos/insta(1).mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781945767/Tiktok_edit_r1ghj9.mov",
       duration: "15s",
       platform: "TikTok + Reels",
       views: "245K",
@@ -20,7 +20,7 @@ export default function SocialContentCaseStudy() {
     {
       id: 2,
       title: "UGC Style Transformation",
-      videoSrc: "/videos/insta(2).mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781946581/Reel_ad2_1_ouyya6.mp4",
       duration: "22s",
       platform: "Instagram Reels",
       views: "189K",
@@ -30,7 +30,7 @@ export default function SocialContentCaseStudy() {
     {
       id: 3,
       title: "Trend Jacking - Viral Sound",
-      videoSrc: "/videos/insta(3).mp4",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781946975/Reel_ad1_1_uqvbu7.mp4",
       duration: "18s",
       platform: "Reel Ad",
       views: "412K",
@@ -40,7 +40,7 @@ export default function SocialContentCaseStudy() {
     {
       id: 4,
       title: "Before → After Skincare",
-      videoSrc: "/videos/insta(4).mp4",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781947132/Insta_feed_video_nexweh.mov",
       duration: "28s",
       platform: "TikTok + Reels",
       views: "156K",
@@ -50,7 +50,7 @@ export default function SocialContentCaseStudy() {
     {
       id: 5,
       title: "Storytelling Hook + CTA",
-      videoSrc: "/videos/insta(5).mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781947188/Insta_video_2_bpbctz.mov",
       duration: "21s",
       platform: "TikTok",
       views: "298K",
