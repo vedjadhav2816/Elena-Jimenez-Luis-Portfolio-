@@ -19,8 +19,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 glass border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="/#home" className="text-3xl font-bold gradient-text tracking-tight">
-          ELENA
+        
+        {/* Animated Flowing Logo */}
+        <a href="/#home" className="text-3xl font-bold tracking-tight relative overflow-hidden">
+          <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_200%] animate-flow">
+            ELENA
+          </span>
         </a>
 
         {/* Desktop Menu */}
@@ -35,7 +39,6 @@ export default function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all" />
             </a>
           ))}
-          {/* New: Reviews */}
           <Link
             to="/reviews"
             className="hover:text-cyan-400 transition-all duration-300 relative group"
@@ -43,7 +46,6 @@ export default function Navbar() {
             Reviews
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all" />
           </Link>
-          {/* CV */}
           <Link
             to="/cv"
             className="hover:text-cyan-400 transition-all duration-300 relative group"
