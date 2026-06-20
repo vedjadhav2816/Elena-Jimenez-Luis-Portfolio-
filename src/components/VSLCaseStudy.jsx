@@ -30,7 +30,7 @@ export default function VSLCaseStudy() {
     {
       id: 3,
       title: "Health Supplement VSL",
-      videoSrc: "/videos/TK_H3_4x5_VID_Nooro_IT.R3_L1_Dr_Avatar.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781939387/TK_H3_4x5_VID_Nooro_IT.R3_L1_Dr_Avatar_rz455s.mp4",
       screenshot: "/screenshots/TK_H3_4x5_VID_Nooro_IT.R3_L1_Dr_Avatar performance metrics.png",
       result: "19.4% Conversion Rate",
       duration: "8:13",
@@ -39,7 +39,7 @@ export default function VSLCaseStudy() {
     {
       id: 4,
       title: "Coaching Offer VSL",
-      videoSrc: "/videos/UGC_VSL PT_Laura L1 H11.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781938112/UGC_VSL_PT_Laura_L1_H11_h7dchc.mp4",
       screenshot: "/screenshots/UGC_VSL PT_Laura L1 H11 performance metrics.png",
       result: "24% Conversion Rate",
       duration: "6:46",
@@ -92,7 +92,7 @@ export default function VSLCaseStudy() {
     {
       id: 6,
       title: "Short Form VSL 6",
-      videoSrc: "/videos/Laura UGC IT_R2 ShortVer H5.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781940712/Laura_UGC_IT_R2_ShortVer_H5_wz3lww.mp4",
       screenshot: "/screenshots/Laura UGC IT_R2 ShortVer H5 performance metrics.png",
       result: "22% Lower CPA",
       duration: "2:48",
@@ -101,7 +101,7 @@ export default function VSLCaseStudy() {
     {
       id: 7,
       title: "Short Form VSL 7",
-      videoSrc: "/videos/TK_H2_4x5_VID_Phil_UGC_NEW.mov",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781939799/TK_H2_4x5_VID_Phil_UGC_NEW_i78ynv.mp4",
       screenshot: "/screenshots/TK_H2_4x5_VID_Phil_UGC_NEW performance metrics.png",
       result: "22% Lower CPA",
       duration: "2:22",
