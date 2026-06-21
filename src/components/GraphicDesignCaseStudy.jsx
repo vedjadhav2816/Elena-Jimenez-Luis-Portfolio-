@@ -1,11 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // 👈 added useLocation
 import { useState, useEffect } from "react";
 import { FaArrowLeft, FaCrown } from "react-icons/fa";
 import CustomCursor from "./CustomCursor";
 
 export default function GraphicDesignCaseStudy() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const location = useLocation();
+
+  // Scroll to top whenever the route changes (including initial load)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const graphics = [
     { 
@@ -25,7 +31,7 @@ export default function GraphicDesignCaseStudy() {
     { id: 9, title: "BlackFriday_Batch", src: "/screenshots/gp9.png" },
   ];
 
-  // Close with ESC key
+  // Close with ESC key (already present, keep it)
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") setSelectedImage(null);
@@ -36,7 +42,7 @@ export default function GraphicDesignCaseStudy() {
 
   return (
     <div className="min-h-screen bg-[#050816] text-white">
-      <CustomCursor />   {/* ← Custom Cursor Added */}
+      <CustomCursor />
 
       {/* Navbar */}
       <nav className="fixed top-0 w-full glass z-50 border-b border-white/10">
@@ -48,7 +54,8 @@ export default function GraphicDesignCaseStudy() {
         </div>
       </nav>
 
-      <div className="pt-24 pb-20">
+      {/* Increase top padding on mobile to prevent heading from being cut off */}
+      <div className="pt-28 sm:pt-32 md:pt-24 lg:pt-24 pb-20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
