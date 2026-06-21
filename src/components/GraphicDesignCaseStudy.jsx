@@ -1,151 +1,162 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom"; // 👈 added useLocation
-import { useState, useEffect } from "react";
-import { FaArrowLeft, FaCrown } from "react-icons/fa";
-import CustomCursor from "./CustomCursor";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import { FaBriefcase, FaLocationDot, FaCalendarAlt } from 'react-icons/fa'; // 👈 changed from fa6 to fa
 
-export default function GraphicDesignCaseStudy() {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const location = useLocation();
+const jobs = [
+  {
+    company: "MyNumy",
+    role: "Creative Strategist",
+    year: "2026 - Present",
+    location: "Remote",
+    description: "Leading creative strategy for DTC health brand, driving 3x ROAS through data-driven content."
+  },
+  {
+    company: "Digital Ride Agency",
+    role: "Video Editor",
+    year: "2026 - Present",
+    location: "Remote",
+    description: "Editing high-conversion video ads for multiple DTC clients across Meta and TikTok."
+  },
+  {
+    company: "Theramure",
+    role: "Creative Strategist & Video Editor",
+    year: "2024 - 2026",
+    location: "Remote",
+    description: "Developed VSLs, UGC, and hook testing frameworks that reduced CPA by 30%."
+  },
+  {
+    company: "MNNSK",
+    role: "Creative Strategist & Video Editor",
+    year: "2024 - 2025",
+    location: "Remote",
+    description: "Created direct-response ad scripts and edited performance-driven video content."
+  }
+];
 
-  // Scroll to top whenever the route changes (including initial load)
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+export default function Experience() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
 
-  const graphics = [
-    { 
-      id: 1, 
-      title: "Copia de TK_4_1x1_IMG_NEW_50%OFF_SOCIALPROOF", 
-      src: "/screenshots/gp1.png", 
-      resultSrc: "/screenshots/gp1 result.png",
-      best: true 
-    },
-    { id: 2, title: "BlackFriday_Batch", src: "/screenshots/gp2.png", best: false },
-    { id: 3, title: "BlackFriday_Batch", src: "/screenshots/gp3.png" },
-    { id: 4, title: "Facts&Stats", src: "/screenshots/gp4(1).png" },
-    { id: 5, title: "BlackFriday_Batch", src: "/screenshots/gp5.png" },
-    { id: 6, title: "Retargeting", src: "/screenshots/gp6.png" },
-    { id: 7, title: "Testimonial", src: "/screenshots/gp7.png" },
-    { id: 8, title: "Retargeting", src: "/screenshots/gp8.png" },
-    { id: 9, title: "BlackFriday_Batch", src: "/screenshots/gp9.png" },
-  ];
-
-  // Close with ESC key (already present, keep it)
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") setSelectedImage(null);
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div className="min-h-screen bg-[#050816] text-white">
-      <CustomCursor />
+    <section id="experience" className="py-20 md:py-32 px-4 md:px-6 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-purple-500/5 to-cyan-500/5 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Navbar */}
-      <nav className="fixed top-0 w-full glass z-50 border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 text-cyan-400 hover:text-cyan-300 transition">
-            <FaArrowLeft /> Back to Portfolio
-          </Link>
-          <h1 className="text-2xl font-bold gradient-text">Graphic Design Lab</h1>
-        </div>
-      </nav>
+      <div className="max-w-5xl mx-auto relative" ref={containerRef}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 md:mb-20"
+        >
+          <span className="text-sm uppercase tracking-[0.2em] text-cyan-400 font-medium">Career Path</span>
+          <h2 className="text-4xl md:text-6xl font-bold gradient-text mt-2">Professional Experience</h2>
+          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">A journey of creative excellence and measurable results</p>
+        </motion.div>
 
-      {/* Increase top padding on mobile to prevent heading from being cut off */}
-      <div className="pt-28 sm:pt-32 md:pt-24 lg:pt-24 pb-20">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="relative pl-8 md:pl-12 border-l-2 border-white/10">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-6xl md:text-7xl font-bold mb-6">Graphic Design</h1>
-            <p className="text-2xl text-gray-300">High-Converting Creatives & Brand Visuals</p>
-          </motion.div>
+            className="absolute left-[-2px] top-0 w-[3px] bg-gradient-to-b from-cyan-400 via-purple-500 to-cyan-400 origin-top"
+            style={{ scaleY: lineHeight }}
+            initial={{ scaleY: 0 }}
+            transition={{ duration: 1.4 }}
+          />
+          <div className="absolute left-[-6px] top-0 w-[11px] h-full bg-cyan-400/10 blur-xl pointer-events-none" />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {graphics.map((item, index) => (
+          {jobs.map((job, index) => (
+            <motion.div
+              key={job.company}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="relative mb-12 md:mb-16 group"
+            >
               <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.08 }}
-                whileHover={{ scale: 1.05 }}
-                className="group relative rounded-3xl overflow-hidden glass cursor-pointer"
-                onClick={() => setSelectedImage(item)}
+                className="absolute -left-[45px] md:-left-[49px] top-1 w-7 h-7 rounded-full bg-black border-2 border-cyan-400 flex items-center justify-center shadow-[0_0_20px_#00ffff40]"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ type: "spring", delay: index * 0.2 }}
               >
-                <div className="relative">
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    className="w-full aspect-[4/3] object-cover"
-                  />
+                <motion.div
+                  className="w-3 h-3 bg-cyan-400 rounded-full"
+                  animate={{
+                    scale: [1, 1.6, 1],
+                    opacity: [0.6, 1, 0.6]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: index * 0.3
+                  }}
+                />
+              </motion.div>
 
-                  {item.best && (
-                    <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-black text-xs font-bold px-4 py-1 rounded-full flex items-center gap-1 shadow-lg">
-                      <FaCrown /> BEST PERFORMING
+              <motion.div
+                whileHover={{
+                  scale: 1.02,
+                  y: -4,
+                  boxShadow: "0 20px 60px rgba(0, 255, 255, 0.15)"
+                }}
+                transition={{ duration: 0.3 }}
+                className="glass p-6 md:p-8 rounded-2xl border border-white/10 hover:border-cyan-400/40 transition-all duration-300 relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 relative z-10">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {job.company}
+                    </h3>
+                    <div className="flex items-center gap-2 mt-1">
+                      <FaBriefcase className="text-cyan-400 text-sm" />
+                      <p className="text-lg md:text-xl text-cyan-400 font-medium">{job.role}</p>
                     </div>
-                  )}
+                    <div className="flex flex-wrap items-center gap-4 mt-3 text-sm text-gray-400">
+                      <span className="flex items-center gap-1.5">
+                        <FaCalendarAlt className="text-cyan-400/70" />
+                        {job.year}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <FaLocationDot className="text-cyan-400/70" />
+                        {job.location}
+                      </span>
+                    </div>
+                    <p className="text-gray-300 mt-3 leading-relaxed max-w-lg">
+                      {job.description}
+                    </p>
+                  </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                    <p className="text-lg font-medium">{item.title}</p>
+                  <div className="hidden md:block text-sm font-mono text-cyan-400/60 bg-black/40 px-4 py-2 rounded-full border border-cyan-400/10 whitespace-nowrap">
+                    {job.year}
                   </div>
                 </div>
+
+                <div className="absolute -top-12 -right-12 w-32 h-32 bg-cyan-400/5 rounded-full blur-2xl pointer-events-none group-hover:bg-cyan-400/10 transition-all" />
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ===================== FULL SCREEN IMAGE MODAL ===================== */}
-      <AnimatePresence>
-        {selectedImage && (
-          <div
-            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 cursor-pointer"
-            onClick={() => setSelectedImage(null)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.92 }}
-              className="relative max-w-[95vw] max-h-[95vh]"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex flex-col items-center justify-center min-h-[85vh] gap-8">
-                {/* Main Image */}
-                <img
-                  src={selectedImage.src}
-                  alt={selectedImage.title}
-                  className="max-h-[75vh] max-w-full object-contain rounded-2xl shadow-2xl"
-                />
-
-                {/* Result Screenshot (only for best performing) */}
-                {selectedImage.best && selectedImage.resultSrc && (
-                  <div className="w-full max-w-2xl">
-                    <p className="text-amber-400 text-center mb-3 font-medium">PERFORMANCE RESULT</p>
-                    <img
-                      src={selectedImage.resultSrc}
-                      alt="Performance Result"
-                      className="w-full rounded-2xl shadow-2xl border border-white/10"
-                    />
-                  </div>
-                )}
-              </div>
-
-              {/* Image Info */}
-              <div className="text-center mt-6">
-                <h3 className="text-3xl font-bold">{selectedImage.title}</h3>
-                {selectedImage.best && (
-                  <p className="text-amber-400 text-xl mt-2">★ Best Performing Creative ★</p>
-                )}
-              </div>
             </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <div className="inline-flex items-center gap-3 text-sm text-gray-400 border border-white/10 px-6 py-3 rounded-full glass">
+            <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+            <span>Open to new opportunities</span>
+            <span className="text-cyan-400">•</span>
+            <span>Available for freelance</span>
           </div>
-        )}
-      </AnimatePresence>
-    </div>
+        </motion.div>
+      </div>
+    </section>
   );
 }
