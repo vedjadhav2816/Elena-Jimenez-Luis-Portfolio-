@@ -1,16 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // 👈 added useLocation
 import { useState, useEffect } from "react";
 import { FaArrowLeft, FaPlay, FaHeart, FaEye, FaTimes } from "react-icons/fa";
 import CustomCursor from "./CustomCursor";
 
 export default function SocialContentCaseStudy() {
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const location = useLocation();
 
-  // Scroll to top when page loads
+  // Scroll to top whenever the route changes (including initial load)
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [location.pathname]); // Re-run when path changes
 
   const socialVideos = [
     {
@@ -81,7 +82,8 @@ export default function SocialContentCaseStudy() {
         </div>
       </nav>
 
-      <div className="pt-24 pb-20">
+      {/* Increase top padding on mobile to prevent heading from being cut off */}
+      <div className="pt-28 sm:pt-32 md:pt-24 lg:pt-24 pb-20">
         <div className="max-w-6xl mx-auto px-6">
           {/* Hero */}
           <motion.div
