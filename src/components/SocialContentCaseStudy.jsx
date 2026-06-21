@@ -81,7 +81,7 @@ export default function SocialContentCaseStudy() {
         </div>
       </nav>
 
-      <div className="pt-28 md:pt-24 pb-20">   {/* ← Increased padding for mobile */}
+      <div className="pt-24 pb-20">
         <div className="max-w-6xl mx-auto px-6">
           {/* Hero */}
           <motion.div
