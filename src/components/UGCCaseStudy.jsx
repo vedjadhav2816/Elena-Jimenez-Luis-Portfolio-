@@ -1,11 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom"; // 👈 added useLocation
+import { useState, useEffect } from "react";
 import { FaArrowLeft, FaPlay, FaTimes } from "react-icons/fa";
 import CustomCursor from "./CustomCursor";
 
 export default function UGCCaseStudy() {
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const location = useLocation();
+
+  // Scroll to top whenever the route changes (including initial load)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const ugcVideos = [
     {
@@ -23,7 +29,7 @@ export default function UGCCaseStudy() {
     {
       id: 3,
       title: "Medium UGC",
-      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781950149/Medium_UGC_wiekph.mp4 ",
+      videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781950149/Medium_UGC_wiekph.mp4", // removed trailing space
       duration: "2.24 min"
     },
     {
@@ -62,7 +68,8 @@ export default function UGCCaseStudy() {
         </div>
       </nav>
 
-      <div className="pt-24 pb-20">
+      {/* Increase top padding on mobile to prevent heading from being cut off */}
+      <div className="pt-28 sm:pt-32 md:pt-24 lg:pt-24 pb-20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
