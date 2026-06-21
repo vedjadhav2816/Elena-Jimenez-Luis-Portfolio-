@@ -1,11 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom"; // 👈 added useLocation
+import { useState, useEffect } from "react";
 import { FaArrowLeft, FaPlay, FaTimes, FaHeadphones } from "react-icons/fa";
 import CustomCursor from "./CustomCursor";
 
 export default function PodcastCaseStudy() {
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const location = useLocation();
+
+  // Scroll to top whenever the route changes (including initial load)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const podcast = {
     title: "Health & Fitness Brand Podcast",
@@ -16,7 +22,7 @@ export default function PodcastCaseStudy() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white">
-      <CustomCursor />   {/* ← Added Custom Cursor */}
+      <CustomCursor />
 
       {/* Navbar */}
       <nav className="fixed top-0 w-full glass z-50 border-b border-white/10">
@@ -30,7 +36,8 @@ export default function PodcastCaseStudy() {
         </div>
       </nav>
 
-      <div className="pt-24 pb-20">
+      {/* Increase top padding on mobile to prevent heading from being cut off */}
+      <div className="pt-28 sm:pt-32 md:pt-24 lg:pt-24 pb-20">
         <div className="max-w-4xl mx-auto px-6">
           {/* Hero */}
           <motion.div
