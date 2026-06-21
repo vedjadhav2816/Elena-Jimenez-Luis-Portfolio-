@@ -1,12 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaArrowLeft, FaPlay, FaClock, FaChartBar, FaTimes } from "react-icons/fa";
 import CustomCursor from "./CustomCursor";
 
 export default function VSLCaseStudy() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const longFormVSLs = [
     {
@@ -61,7 +66,6 @@ export default function VSLCaseStudy() {
       id: 2,
       title: "Short Form VSL 2",
       videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781944590/H1_CPareyou60_9x16_spkww0.mp4",
-      // ❌ No screenshot, no result
       duration: "1:33",
       isVertical: true,
     },
@@ -69,7 +73,6 @@ export default function VSLCaseStudy() {
       id: 3,
       title: "Short Form VSL 3",
       videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781944774/9x16_fluxa_pdrn_video_ur35fr.mp4",
-      // ❌ No screenshot, no result
       duration: "0:52",
       isVertical: true,
     },
@@ -77,7 +80,6 @@ export default function VSLCaseStudy() {
       id: 4,
       title: "Short Form VSL 4",
       videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781945020/H1_CPingredientsbreakdown_9x16_iuiqzm.mp4",
-      // ❌ No screenshot, no result
       duration: "1:54",
       isVertical: true,
     },
@@ -85,7 +87,6 @@ export default function VSLCaseStudy() {
       id: 5,
       title: "Short Form VSL 5",
       videoSrc: "https://res.cloudinary.com/dnymbpzbx/video/upload/v1781941206/H5hyaluronic_CPtophatoavoid_9x16_t6szpu.mp4",
-      // ❌ No screenshot, no result
       duration: "1:54",
       isVertical: true,
     },
@@ -117,7 +118,6 @@ export default function VSLCaseStudy() {
       transition={{ delay: index * 0.1 }}
       className={`bg-black/60 rounded-2xl overflow-hidden border border-white/10 hover:border-${accentColor}-400/40 transition-all group`}
     >
-      {/* Autoplay Vertical Video */}
       <div
         className={`relative mx-auto ${vsl.isVertical ? "max-w-[280px]" : "w-full"} cursor-pointer`}
         onClick={() => setSelectedVideo(vsl)}
@@ -134,24 +134,20 @@ export default function VSLCaseStudy() {
           />
         </div>
 
-        {/* Hover Play Overlay */}
         <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all">
           <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
             <FaPlay className="text-white ml-1 text-3xl" />
           </div>
         </div>
 
-        {/* Duration */}
         <div className="absolute top-4 right-4 bg-black/80 text-xs px-3 py-1 rounded-full flex items-center gap-1.5">
           <FaPlay className="text-xs" /> {vsl.duration}
         </div>
       </div>
 
-      {/* Content */}
       <div className="p-7">
         <h3 className="text-xl font-semibold mb-4">{vsl.title}</h3>
 
-        {/* Only show result if it exists */}
         {vsl.result && (
           <div className={`flex items-center gap-2 text-${accentColor}-400 mb-6`}>
             <FaChartBar />
@@ -159,7 +155,6 @@ export default function VSLCaseStudy() {
           </div>
         )}
 
-        {/* Only show screenshot if it exists */}
         {vsl.screenshot && (
           <div>
             <p className="text-sm text-gray-400 mb-3">Campaign Result Screenshot</p>
@@ -200,7 +195,6 @@ export default function VSLCaseStudy() {
           </motion.div>
 
           <div className="space-y-28">
-            {/* Long Form */}
             <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} className="glass rounded-3xl p-8 md:p-16">
               <div className="flex items-center gap-4 mb-12">
                 <FaClock className="text-4xl text-cyan-400" />
@@ -211,7 +205,6 @@ export default function VSLCaseStudy() {
               </div>
             </motion.section>
 
-            {/* Short Form */}
             <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} className="glass rounded-3xl p-8 md:p-16">
               <div className="flex items-center gap-4 mb-12">
                 <FaClock className="text-4xl text-purple-400" />
@@ -225,7 +218,7 @@ export default function VSLCaseStudy() {
         </div>
       </div>
 
-      {/* ========== VIDEO FULL SCREEN MODAL ========== */}
+      {/* Video Modal */}
       <AnimatePresence>
         {selectedVideo && (
           <div
@@ -239,29 +232,14 @@ export default function VSLCaseStudy() {
               className="relative w-full max-w-md"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Video Container with Close Button Overlay */}
-              <div className="relative aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/20">
-                {/* ========== CLOSE BUTTON - X ICON ON TOP-RIGHT EDGE ========== */}
-                <button
-                  onClick={() => setSelectedVideo(null)}
-                  className="absolute top-3 right-3 z-30 
-                             bg-black/70 hover:bg-red-600 active:bg-red-700
-                             backdrop-blur-md
-                             text-white 
-                             w-12 h-12 rounded-full
-                             flex items-center justify-center
-                             text-2xl font-bold
-                             border border-white/30 hover:border-red-400
-                             shadow-lg shadow-black/50
-                             transition-all duration-200
-                             touch-action-manipulation
-                             active:scale-90"
-                  style={{ touchAction: "manipulation" }}
-                  aria-label="Close video"
-                >
-                  <FaTimes />
-                </button>
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute -top-20 left-1/2 -translate-x-1/2 bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded-full flex items-center gap-3 text-lg font-bold shadow-2xl z-30 transition-all"
+              >
+                <FaTimes /> CLOSE VIDEO
+              </button>
 
+              <div className="aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/20">
                 <video
                   src={selectedVideo.videoSrc}
                   controls
@@ -270,19 +248,12 @@ export default function VSLCaseStudy() {
                   playsInline
                 />
               </div>
-
-              <div className="text-center mt-6">
-                <h3 className="text-2xl font-bold">{selectedVideo.title}</h3>
-                {selectedVideo.result && (
-                  <p className="text-cyan-400 mt-1">{selectedVideo.result}</p>
-                )}
-              </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
 
-      {/* ========== IMAGE FULL SCREEN MODAL ========== */}
+      {/* Image Modal */}
       <AnimatePresence>
         {selectedImage && (
           <div
@@ -296,18 +267,13 @@ export default function VSLCaseStudy() {
               className="relative max-w-5xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close button for image modal */}
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 text-white text-4xl hover:text-cyan-400 transition-colors z-20"
+                className="absolute -top-12 right-4 text-4xl text-white hover:text-cyan-400"
               >
                 <FaTimes />
               </button>
-              <img
-                src={selectedImage}
-                alt="Result"
-                className="w-full rounded-2xl shadow-2xl"
-              />
+              <img src={selectedImage} alt="Result" className="w-full rounded-2xl shadow-2xl" />
             </motion.div>
           </div>
         )}
