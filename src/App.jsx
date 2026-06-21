@@ -48,6 +48,8 @@ export default function App() {
             <Experience />
             <Education />
             <Projects />
+            <CVPage /> {/* Add CVPage component here */}
+            <Reviews /> {/* Add Reviews component here */}
             <Contact />
             <Footer />
             <CustomCursor />
