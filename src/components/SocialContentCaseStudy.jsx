@@ -1,10 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaArrowLeft, FaPlay, FaHeart, FaEye, FaTimes } from "react-icons/fa";
+import CustomCursor from "./CustomCursor";
 
 export default function SocialContentCaseStudy() {
   const [selectedVideo, setSelectedVideo] = useState(null);
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const socialVideos = [
     {
@@ -61,6 +67,8 @@ export default function SocialContentCaseStudy() {
 
   return (
     <div className="min-h-screen bg-[#050816] text-white overflow-hidden">
+      <CustomCursor />
+
       {/* Navbar */}
       <nav className="fixed top-0 w-full glass z-50 border-b border-white/10">
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
@@ -73,7 +81,7 @@ export default function SocialContentCaseStudy() {
         </div>
       </nav>
 
-      <div className="pt-24 pb-20">
+      <div className="pt-28 md:pt-24 pb-20">   {/* ← Increased padding for mobile */}
         <div className="max-w-6xl mx-auto px-6">
           {/* Hero */}
           <motion.div
@@ -155,24 +163,22 @@ export default function SocialContentCaseStudy() {
         {selectedVideo && (
           <div 
             className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
-            onClick={() => setSelectedVideo(null)}   // Click background to close
+            onClick={() => setSelectedVideo(null)}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.92 }}
               className="relative w-full max-w-md"
-              onClick={(e) => e.stopPropagation()}   // Prevent closing when clicking video
+              onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button - Very Clear */}
               <button
                 onClick={() => setSelectedVideo(null)}
-                className="absolute -top-20 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-black text-white px-6 py-3 rounded-full flex items-center gap-3 text-lg font-medium border border-white/20 hover:border-white/40 transition-all z-20"
+                className="absolute -top-20 left-1/2 -translate-x-1/2 bg-black/70 hover:bg-red-600 text-white px-8 py-3 rounded-full flex items-center gap-3 text-lg font-medium border border-white/20 hover:border-white/40 transition-all z-20"
               >
                 <FaTimes /> CLOSE FULL SCREEN
               </button>
 
-              {/* Video Container */}
               <div className="aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/20">
                 <video
                   src={selectedVideo.videoSrc}
