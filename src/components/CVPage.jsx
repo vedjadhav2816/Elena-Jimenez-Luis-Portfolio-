@@ -93,7 +93,7 @@ export default function CVPage() {
                 </div>
                 <div>
                   <p className="font-medium">Video Editor – Digital Ride Agency</p>
-                  <p className="text-sm text-gray-400">April 2026 – present</p>
+                  <p className="text-sm text-gray-400">April 2026 – May 2026</p>
                 </div>
                 <div>
                   <p className="font-medium">Creative Strategist & Video Editor (in-house) – Theramure LTD (Health & Wellness DTC)</p>
