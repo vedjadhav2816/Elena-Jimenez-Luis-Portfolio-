@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { FaBriefcase, FaLocationDot, FaCalendarAlt } from 'react-icons/fa'; // 👈 changed from fa6 to fa
+import { FaBriefcase, FaMapMarkerAlt, FaCalendarAlt } from 'react-icons/fa'; // 👈 changed from fa6 to fa
 
 const jobs = [
   {
@@ -123,7 +123,7 @@ export default function Experience() {
                         {job.year}
                       </span>
                       <span className="flex items-center gap-1.5">
-                        <FaLocationDot className="text-cyan-400/70" />
+                        <FaMapMarkerAlt className="text-cyan-400/70" />
                         {job.location}
                       </span>
                     </div>
