@@ -17,9 +17,9 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           className="glass p-10 md:p-16 rounded-3xl text-lg leading-relaxed text-gray-200"
         >
-          Freelance Creative Strategist specialized in DTC Health & Wellness brands. 
-          With over 3 years of experience, I excel at creating high-converting creatives, 
-          VSLs, and UGC content that drives real results.
+        I'm Elena, a creative strategist who helps DTC brands turn customer insight into ads that actually sell. I work across the whole funnel: finding the angle, writing the script, then digging into what's working and multiplying one winning asset into multiple winning assets. Rinse and repeat.
+        Everything starts with what your customer really thinks and feels, so the creative doesn't just look good, it brings your CPA down and scales.
+
         </motion.div>
       </div>
     </section>
