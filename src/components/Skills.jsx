@@ -13,20 +13,8 @@ const skillsData = [
     color: "cyan",
     visual: "🎯"
   },
-  {
-    name: "Video Editing",
-    icon: <FaVideo className="text-4xl md:text-5xl" />,
-    desc: "Cinematic cuts, pacing & storytelling that converts",
-    color: "purple",
-    visual: "🎬"
-  },
-  {
-    name: "Motion Graphics",
-    icon: <FaMagic className="text-4xl md:text-5xl" />,
-    desc: "Smooth animations and dynamic text that captivate",
-    color: "emerald",
-    visual: "✨"
-  },
+ 
+
   {
     name: "Meta Ads Creatives",
     icon: <FaBullseye className="text-4xl md:text-5xl" />,
@@ -34,13 +22,7 @@ const skillsData = [
     color: "rose",
     visual: "📈"
   },
-  {
-    name: "VSL Production",
-    icon: <FaPlay className="text-4xl md:text-5xl" />,
-    desc: "Long-form sales videos optimized for conversions",
-    color: "amber",
-    visual: "📺"
-  },
+
   {
     name: "UGC Content",
     icon: <FaUsers className="text-4xl md:text-5xl" />,
@@ -55,13 +37,7 @@ const skillsData = [
     color: "orange",
     visual: "💰"
   },
-  {
-    name: "Color Grading",
-    icon: <FaPalette className="text-4xl md:text-5xl" />,
-    desc: "Cinematic color that enhances mood & brand feel",
-    color: "violet",
-    visual: "🌈"
-  },
+  
   {
     name: "Storyboarding",
     icon: <FaMagic className="text-4xl md:text-5xl" />,
