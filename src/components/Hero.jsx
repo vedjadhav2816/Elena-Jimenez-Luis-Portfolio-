@@ -88,7 +88,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-3xl md:text-4xl text-cyan-400 font-light mb-8"
             >
-              Creative Strategist & Video Editor
+                DTC Creative Strategist  
             </motion.p>
 
             <motion.p
