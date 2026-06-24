@@ -84,25 +84,15 @@ export default function Skills() {
     setPopupOpen(true);
   };
 
-  const handleMouseLeave = () => {
-    // Delay hiding so that click can override
-    hideTimeoutRef.current = setTimeout(() => {
-      // Only hide if not clicked (we'll track via a flag, but we'll check if it's still the same skill)
-      // Actually we just close the popup after delay, but if a click happened, we want it to stay open.
-      // We can set a flag, but simpler: we'll check if the popup is open via click.
-      // We'll use a separate state for click vs hover.
-      // But for simplicity, we'll close after delay unless a click happens.
-      // The click will set a different state that overrides.
-      setPopupOpen(false);
-      // Delay the removal of selectedSkill so the animation can play
-      setTimeout(() => {
-        // Only clear if the same skill is still selected (no new hover)
-        if (selectedSkill === skill) {
-          setSelectedSkill(null);
-        }
-      }, 200);
-    }, 300);
-  };
+const handleMouseLeave = () => {
+  hideTimeoutRef.current = setTimeout(() => {
+    setPopupOpen(false);
+
+    setTimeout(() => {
+      setSelectedSkill(null);
+    }, 200);
+  }, 300);
+};
 
   const handleClick = (skill) => {
     // Cancel any pending hide
