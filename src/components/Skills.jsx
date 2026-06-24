@@ -22,14 +22,7 @@ const skillsData = [
     color: "rose",
     visual: "📈"
   },
-
-  {
-    name: "UGC Content",
-    icon: <FaUsers className="text-4xl md:text-5xl" />,
-    desc: "Authentic user-generated style content at scale",
-    color: "teal",
-    visual: "📱"
-  },
+  
   {
     name: "Direct Response",
     icon: <FaChartLine className="text-4xl md:text-5xl" />,
