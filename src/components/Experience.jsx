@@ -13,7 +13,7 @@ const jobs = [
   {
     company: "Digital Ride Agency",
     role: "Video Editor",
-    year: "2026 - Present",
+    year: "2026 - May 2026",
     location: "Remote",
     description: "Editing high-conversion video ads for multiple DTC clients across Meta and TikTok."
   },
