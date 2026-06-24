@@ -97,7 +97,7 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="max-w-lg mx-auto md:mx-0 text-lg text-gray-300 mb-12"
             >
-              Crafting high-converting visual stories for DTC Health & Fitness brands
+              Crafting high-converting visual stories for DTC Health & Wellness brands
             </motion.p>
 
             <motion.a

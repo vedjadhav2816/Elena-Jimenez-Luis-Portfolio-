@@ -17,7 +17,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           className="glass p-10 md:p-16 rounded-3xl text-lg leading-relaxed text-gray-200"
         >
-          Freelance Creative Strategist specialized in DTC Health & Fitness brands. 
+          Freelance Creative Strategist specialized in DTC Health & Wellness brands. 
           With over 3 years of experience, I excel at creating high-converting creatives, 
           VSLs, and UGC content that drives real results.
         </motion.div>
