@@ -23,7 +23,7 @@ export default function Navbar() {
         {/* Animated Flowing Logo */}
         <a href="/#home" className="text-3xl font-bold tracking-tight relative overflow-hidden">
           <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_200%] animate-flow">
-            ELENA
+             DTC Creative Strategist  
           </span>
         </a>
 
