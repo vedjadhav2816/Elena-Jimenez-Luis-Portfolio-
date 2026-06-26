@@ -23,10 +23,10 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // Music Control
+  // Music Control with smooth transition
   const toggleMusic = () => {
     if (!audioRef.current) return;
-    
+
     if (isPlaying) {
       audioRef.current.pause();
     } else {
@@ -160,7 +160,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ===================== MUSIC PLAYER ===================== */}
+      {/* ===================== MUSIC PLAYER - Enhanced with Smooth Transitions ===================== */}
       <div className="absolute bottom-8 md:bottom-12 right-6 md:right-8 z-30">
         <motion.button
           onClick={toggleMusic}
@@ -170,25 +170,42 @@ export default function Hero() {
         >
           {/* Rotating Music Note */}
           <motion.div
-            animate={{ rotate: isPlaying ? 360 : 0 }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-            className="text-3xl"
+            animate={{ 
+              rotate: isPlaying ? 360 : 0,
+              scale: isPlaying ? 1 : 0.85
+            }}
+            transition={{ 
+              rotate: { duration: 2.5, repeat: Infinity, ease: "linear" },
+              scale: { duration: 0.4, ease: "easeOut" }
+            }}
+            className="text-3xl text-cyan-400"
           >
             ♫
           </motion.div>
 
-          {/* Pause Icon when playing */}
-          {isPlaying && (
+          {/* Pause Bars with Smooth Transition */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ 
+              opacity: isPlaying ? 1 : 0,
+              scale: isPlaying ? 1 : 0.6
+            }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="absolute inset-0 flex items-center justify-center gap-[6px]"
+          >
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="absolute inset-0 flex items-center justify-center text-2xl"
-            >
-              ‖
-            </motion.div>
-          )}
+              animate={{ height: isPlaying ? "18px" : "8px" }}
+              transition={{ duration: 0.3 }}
+              className="w-[4px] bg-cyan-400 rounded-full"
+            />
+            <motion.div
+              animate={{ height: isPlaying ? "26px" : "10px" }}
+              transition={{ duration: 0.3, delay: 0.05 }}
+              className="w-[4px] bg-cyan-400 rounded-full"
+            />
+          </motion.div>
 
-          {/* "Enjoy the music" text - appears on hover when NOT playing */}
+          {/* "Enjoy the music" hint */}
           {!isPlaying && (
             <motion.span
               initial={{ opacity: 0, y: 8 }}
