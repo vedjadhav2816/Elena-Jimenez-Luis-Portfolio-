@@ -160,29 +160,30 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Music Player */}
-      <div className="absolute bottom-24 md:bottom-28 left-1/2 -translate-x-1/2 z-30">
+      {/* ===================== MUSIC PLAYER ===================== */}
+      <div className="absolute bottom-8 md:bottom-12 right-6 md:right-8 z-30">
         <motion.button
-          onClick={() => {
-            const audio = document.getElementById("hero-music");
-            if (audio.paused) {
-              audio.play();
-            } else {
-              audio.pause();
-            }
-          }}
+          onClick={toggleMusic}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-black/70 backdrop-blur-md border border-cyan-400/30 hover:border-cyan-400 text-cyan-400 px-6 py-3 rounded-full flex items-center gap-3 text-sm font-medium shadow-xl"
+          className="flex items-center gap-3 bg-black/70 backdrop-blur-lg border border-cyan-400/30 hover:border-cyan-400 px-5 py-3 rounded-full text-sm font-medium shadow-xl transition-all"
         >
-          <span>♪</span>
-          <span>Ambient Music</span>
+          <motion.div
+            animate={{ rotate: isPlaying ? 360 : 0 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            className="text-xl"
+          >
+            ♫
+          </motion.div>
+          <span className="text-cyan-400">
+            {isPlaying ? "PAUSE MUSIC" : "PLAY MUSIC"}
+          </span>
         </motion.button>
       </div>
 
       {/* Hidden Audio */}
-      <audio id="hero-music" loop>
-        <source src="/screenshots/music.mp3" type="audio/mpeg" />
+      <audio ref={audioRef} loop>
+        <source src="/music/background.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Scroll Indicator */}
