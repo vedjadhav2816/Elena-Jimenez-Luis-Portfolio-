@@ -177,24 +177,26 @@ export default function Hero() {
             ♫
           </motion.div>
 
-          {/* "Enjoy the music" text on hover (when not playing) */}
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileHover={{ opacity: 1, y: 0 }}
-            className="absolute -bottom-10 text-xs text-cyan-400 whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-all"
-          >
-            Enjoy the music
-          </motion.span>
-
           {/* Pause Icon when playing */}
           {isPlaying && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute inset-0 flex items-center justify-center text-xl"
+              className="absolute inset-0 flex items-center justify-center text-2xl"
             >
               ‖
             </motion.div>
+          )}
+
+          {/* "Enjoy the music" text - appears on hover when NOT playing */}
+          {!isPlaying && (
+            <motion.span
+              initial={{ opacity: 0, y: 8 }}
+              whileHover={{ opacity: 1, y: 0 }}
+              className="absolute -bottom-9 text-xs text-cyan-400 whitespace-nowrap pointer-events-none transition-all duration-300"
+            >
+              Enjoy the music
+            </motion.span>
           )}
         </motion.button>
       </div>
