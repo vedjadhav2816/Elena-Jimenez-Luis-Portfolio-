@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const greetings = [
   { text: "Hello", lang: "English" },
@@ -12,13 +12,28 @@ const greetings = [
 
 export default function Hero() {
   const [currentGreeting, setCurrentGreeting] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
 
+  // Greeting Animation
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentGreeting((prev) => (prev + 1) % greetings.length);
     }, 2600);
     return () => clearInterval(interval);
   }, []);
+
+  // Music Control
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch(err => console.log("Music play prevented:", err));
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <section
@@ -35,7 +50,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
 
-          {/* ==================== MOBILE FIRST: IMAGE + GREETING ==================== */}
+          {/* Mobile First: Image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,7 +86,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Left Content - Text */}
+          {/* Left Content */}
           <div className="text-center md:text-left order-2 md:order-1">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
@@ -88,7 +103,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-3xl md:text-4xl text-cyan-400 font-light mb-8"
             >
-                DTC Creative Strategist  
+              Creative Strategist & Video Editor
             </motion.p>
 
             <motion.p
@@ -97,7 +112,7 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="max-w-lg mx-auto md:mx-0 text-lg text-gray-300 mb-12"
             >
-              Crafting high-converting visual stories for DTC Health & Wellness brands
+              Crafting high-converting visual stories for DTC Health & Fitness brands
             </motion.p>
 
             <motion.a
@@ -110,7 +125,7 @@ export default function Hero() {
             </motion.a>
           </div>
 
-          {/* Desktop Photo + Greeting */}
+          {/* Desktop Photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85, rotateY: -20 }}
             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -144,6 +159,31 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Music Player */}
+      <div className="absolute bottom-24 md:bottom-28 left-1/2 -translate-x-1/2 z-30">
+        <motion.button
+          onClick={() => {
+            const audio = document.getElementById("hero-music");
+            if (audio.paused) {
+              audio.play();
+            } else {
+              audio.pause();
+            }
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-black/70 backdrop-blur-md border border-cyan-400/30 hover:border-cyan-400 text-cyan-400 px-6 py-3 rounded-full flex items-center gap-3 text-sm font-medium shadow-xl"
+        >
+          <span>♪</span>
+          <span>Ambient Music</span>
+        </motion.button>
+      </div>
+
+      {/* Hidden Audio */}
+      <audio id="hero-music" loop>
+        <source src="/screenshots/music.mp3" type="audio/mpeg" />
+      </audio>
 
       {/* Scroll Indicator */}
       <motion.div
