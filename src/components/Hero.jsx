@@ -164,32 +164,44 @@ export default function Hero() {
       <div className="absolute bottom-8 md:bottom-12 right-6 md:right-8 z-30">
         <motion.button
           onClick={toggleMusic}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="relative flex items-center justify-center w-14 h-14 bg-black/80 backdrop-blur-lg border border-cyan-400/40 hover:border-cyan-400 rounded-full shadow-xl transition-all overflow-hidden"
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.9 }}
+          className="relative flex items-center justify-center w-16 h-16 bg-black/80 backdrop-blur-xl border border-cyan-400/40 hover:border-cyan-400 rounded-full shadow-2xl transition-all overflow-hidden group"
         >
+          {/* Rotating Music Note */}
           <motion.div
             animate={{ rotate: isPlaying ? 360 : 0 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            className="text-2xl"
+            transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+            className="text-3xl"
           >
             ♫
           </motion.div>
 
-          {/* Text that appears on hover */}
+          {/* "Enjoy the music" text on hover (when not playing) */}
           <motion.span
             initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: isPlaying ? 0 : 1, y: isPlaying ? 10 : 0 }}
-            className="absolute -bottom-8 text-xs text-cyan-400 whitespace-nowrap pointer-events-none"
+            whileHover={{ opacity: 1, y: 0 }}
+            className="absolute -bottom-10 text-xs text-cyan-400 whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-all"
           >
-            {isPlaying ? "" : "Enjoy the music"}
+            Enjoy the music
           </motion.span>
+
+          {/* Pause Icon when playing */}
+          {isPlaying && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="absolute inset-0 flex items-center justify-center text-xl"
+            >
+              ‖
+            </motion.div>
+          )}
         </motion.button>
       </div>
 
       {/* Hidden Audio */}
       <audio ref={audioRef} loop>
-        <source src="/music/background.mp3" type="audio/mpeg" />
+        <source src="/screenshots/music.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Scroll Indicator */}
