@@ -166,24 +166,30 @@ export default function Hero() {
           onClick={toggleMusic}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-3 bg-black/70 backdrop-blur-lg border border-cyan-400/30 hover:border-cyan-400 px-5 py-3 rounded-full text-sm font-medium shadow-xl transition-all"
+          className="relative flex items-center justify-center w-14 h-14 bg-black/80 backdrop-blur-lg border border-cyan-400/40 hover:border-cyan-400 rounded-full shadow-xl transition-all overflow-hidden"
         >
           <motion.div
             animate={{ rotate: isPlaying ? 360 : 0 }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            className="text-xl"
+            className="text-2xl"
           >
             ♫
           </motion.div>
-          <span className="text-cyan-400">
-            {isPlaying ? "PAUSE MUSIC" : "PLAY MUSIC"}
-          </span>
+
+          {/* Text that appears on hover */}
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: isPlaying ? 0 : 1, y: isPlaying ? 10 : 0 }}
+            className="absolute -bottom-8 text-xs text-cyan-400 whitespace-nowrap pointer-events-none"
+          >
+            {isPlaying ? "" : "Enjoy the music"}
+          </motion.span>
         </motion.button>
       </div>
 
       {/* Hidden Audio */}
       <audio ref={audioRef} loop>
-        <source src="/screenshots/music.mp3" type="audio/mpeg" />
+        <source src="/music/background.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Scroll Indicator */}
